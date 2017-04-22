@@ -6,11 +6,11 @@ import React, {
 const {height, width} = Dimensions.get('window');
 
 const style = StyleSheet.create({
-  container: {
+	container: {
     flex: 1,
   },
   header: {
-    flex:.5,
+  	flex:.5,
     paddingVertical: 30,
     backgroundColor: '#03A9F4',
     height: 60,
@@ -30,7 +30,6 @@ const style = StyleSheet.create({
 	},
   content: {
     flex: 10,
-    flexDirection: 'row',
   },
   footer: {
     flex:.5,
@@ -43,40 +42,40 @@ const style = StyleSheet.create({
 		alignItems: 'center'
   },
 
-    preview: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    modal: {
-        flex: 1,
-        width: Dimensions.get('window').width,
-    },
-    shade: {
-        flex: 1,
-        backgroundColor: 'rgba(1, 1, 1, 0.65)',
-    },
-    contente: {
-        alignItems: 'center',
-        padding: 20,
-    },
-    qrcode: {
-      width: 200,
-      height: 200,
-      alignItems: 'center',
-			borderWidth: 2,
-	 		borderColor: '#00FF00',
-	 		backgroundColor: 'transparent',
-    },
-    text: {
-        color: '#ccc',
-        fontSize: 15,
-    },
-    line: {
-        width: 200,
-        height: 1,
-        backgroundColor: 'rgba(30, 255, 145, 1)',
-},
+  preview: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modal: {
+    flex: 1,
+    width: Dimensions.get('window').width,
+  },
+  shade: {
+    flex: 1,
+    backgroundColor: 'rgba(1, 1, 1, 0.65)',
+  },
+  contente: {
+    alignItems: 'center',
+    padding: 20,
+  },
+  qrcode: {
+    width: 300,
+    height: 300,
+    alignItems: 'center',
+		borderWidth: 2,
+		borderColor: '#00FF00',
+		backgroundColor: 'transparent',
+  },
+  text: {
+    color: '#ccc',
+    fontSize: 15,
+  },
+  line: {
+    width: 200,
+    height: 1,
+    backgroundColor: 'rgba(30, 255, 145, 1)',
+	},
   buttonText:{
 		color:'white',
 		fontSize: 17,

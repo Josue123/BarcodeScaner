@@ -20,7 +20,8 @@ class CodeReader extends Component {
     super(props);
     this.camera = null;
     this.state = {
-      code: "None",
+      code: '',
+      type: '',
       show:true,
       anim: new Animated.Value(0),
       camera: {
@@ -61,36 +62,36 @@ class CodeReader extends Component {
         <Text style={Style.sectionTitle1}>ESCANEAR CÓDIGO</Text>
        </View>
 
-         <View style={[Style.content]}>
-            <Camera
-              ref={(cam) => { this.camera = cam } }
-              style={Style.preview}
-              aspect={this.state.camera.aspect}
-              barCodeTypes = {['qr']}
-              onBarCodeRead={ (code) => this._show(code)}
-            >
+       <View style={[Style.content]}>
+          <Camera
+            ref={(cam) => { this.camera = cam } }
+            style={Style.preview}
+            aspect={this.state.camera.aspect}
+            onBarCodeRead={ (code) => this._show(code)}
+          >
 
-            <View style={Style.modal}>
-                <View style={Style.shade}></View>
-                <View style={{ flexDirection: 'row' }}>
-                    <View style={Style.shade}></View>
-                    <View style={Style.qrcode}>
+          <View style={Style.modal}>
+              <View style={Style.shade}></View>
+              <View style={{ flexDirection: 'row' }}>
+                  <View style={Style.shade}></View>
+                  <View style={Style.qrcode}>
 
-                    </View>
-                    <View style={Style.shade}></View>
-                </View>
+                  </View>
+                  <View style={Style.shade}></View>
+              </View>
 
-                <View style={[Style.shade, Style.contente]}>
-                    <Text style={Style.text}>{this.state.code}</Text>
-                </View>
-            </View>
-          </Camera>
-        </View>
+              <View style={[Style.shade, Style.contente]}>
+                  <Text style={Style.text}>Dato:{this.state.code}</Text>
+                  <Text style={Style.text}>Tipo:{this.state.type}</Text>
+              </View>
+          </View>
+        </Camera>
+      </View>
 
 
 				<TouchableOpacity style={[Style.footer]} onPress={this.takePicture.bind(this)}>
 					<View>
-						<Text style={Style.buttonText}>Capturar</Text>
+						<Text style={Style.buttonText}>Capturar imagen</Text>
 					</View>
 				</TouchableOpacity>
      </View>
@@ -98,8 +99,11 @@ class CodeReader extends Component {
   }
 
   _show(val) {
+    console.log('Barcode: ' + val.data);
+    console.log('Type: ' + val.type);
     this.setState({
-        code:val.data
+        code:val.data,
+        type:val.type
     })
   }
 
